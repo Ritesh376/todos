@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="TODO.css">
+</head>
+<body>
+  <h1>PLAN YOUR DAY</h1>
+  <main>
+  <input type="text" id="todoInput" placeholder="Enter your todo item...">
+  
+  <button onclick="addTodo()">Add Todo</button>
+</main>
+
+
+  
+
+
+  
+  <script>
+    function addTodo() {
+      const inputElement = document.getElementById('todoInput');
+      const value = inputElement.value;
+      const spanEL = document.createElement("span");
+      const buttonEl = document.createElement("button");
+      buttonEl.innerHTML = "Done";
+      const deletetodo= document.createElement("delete")
+      deletetodo.innerHTML = "Delete";
+      buttonEl.onclick = function() {
+        this.innerHTML = "✅"; 
+        
+         
+      };
+      deletetodo.onclick = function() {
+         const divEL = this.parentElement; 
+         divEL.remove();
+      };
+
+
+      spanEL.innerHTML = value;
+
+      const divEl = document.createElement("div");
+      divEl.appendChild(spanEL);
+      divEl.appendChild(buttonEl);
+      divEl.appendChild(deletetodo);
+
+      document.body.appendChild(divEl);
+      inputElement.value = ""; 
+    }
+  </script>
+</body>
+</html>
